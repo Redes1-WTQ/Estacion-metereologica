@@ -6,8 +6,8 @@ WiFiServer server(80);
 
 // ----------------------Constantes de credenciales WiFi ----------------
 
-const char* ssid = "FRANK";      //nombre de red WiFi
-const char* password = "nico0308";  //contraseña de red WiFi
+const char* ssid = "";      //nombre de red WiFi
+const char* password = "";  //contraseña de red WiFi
 
 // ----------------------Variables globales ------ ----------------------
 
