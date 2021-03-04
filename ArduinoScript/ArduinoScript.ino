@@ -52,7 +52,7 @@ void loop() {
   //Se crea la direccion para luego usarla en el POST que se tiene que enviar
   String  url ="http://192.168.5.111/EstMetereologica/logica/entrada_datos.php";
   //Se crea la string con datos a enviar por metodo POST
-  String data="humedad=35&temperatura=28.3"
+  String data="humedad="+ hum +"&temperatura="+temp;
 
   Serial.println("Requesting URL: ");
   Serial.println(url);
