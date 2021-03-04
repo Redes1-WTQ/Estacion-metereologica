@@ -8,17 +8,43 @@ html {
   }
   body {
     margin: 0;
-    background-image: url('../recursos/Images/Clima.jpg');
+    /*background-image: url('../recursos/Images/Clima.jpg');*/
     background-repeat:inherit;
     background-position:center;
+    background-color: #000000;
     display: block;
     margin: auto;
   }
+  a:link, a:visited, a:active {
+    text-decoration:none;
+    font-family: 'Times New Roman', Times, serif;
+    color:#FEFCFB;
+    font-size: 12px;
+  }
   .topnav {
     overflow: hidden;
-    background-color: #66003b;
-    color: #95d500;
-    font-size: 1rem;
+    background-color: #B8711B;
+    color: #181d35;
+    font-size: 0.7rem;
+  }
+  .boton1{
+    text-decoration: none;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: helvetica;
+    font-weight: 300;
+    font-size: 15px;
+    font-style: italic;
+    color: #B8711B;
+    background-color: #181d35;
+    border-radius: 15px;
+    border: 3px double #242c50;
+    float:right
+  }
+  .boton1:hover{
+    opacity: 0.8;
+    text-decoration: none;
   }
   .content {
     padding: 20px;
@@ -30,10 +56,17 @@ html {
   .card-title {
     color:#66003b;
     font-weight: bold;
+    font-size: 1em;
+  }
+
+  .card-subtitle {
+    color:#66003b;
+    font-weight: bold;
+    font-size: 0.9em;
   }
 
   .card-big{
-    background-color: #003366;
+    background-color: #181d35;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
   }
   .cards {
@@ -42,8 +75,11 @@ html {
     display: grid; grid-gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  .reading {
-    font-size: 1.2rem;
+  .reading{
+    color:#492b3d;
+    font-weight: lighter;
+    font-size: 13px;
+    float:inline-start;
   }
   .cube-content{
     width: 100%;

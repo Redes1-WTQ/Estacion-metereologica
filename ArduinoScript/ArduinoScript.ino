@@ -7,8 +7,8 @@
 
 
 const char* ssid="TELLEZ";
-const char* pass="******";
-const char* ip ="192.168.5.111"
+const char* pass="TAPROOT456";
+const char* host ="192.168.30.22";
 
 float temp = 0;
 float hum = 0;
@@ -41,18 +41,18 @@ void loop() {
   //lectura de datos sensores
   leerdht11();
   //conexion con servidor local
-  serial.print("conectando a: ");
+  Serial.print("conectando a: ");
   const int httpPort = 80;
   if(!cliente.connect(host,httpPort)){
-    Serial.println("conexion fallida")
+    Serial.println("conexion fallida");
     return;
   }
 
 
   //Se crea la direccion para luego usarla en el POST que se tiene que enviar
-  String  url ="http://192.168.5.111/EstMetereologica/logica/entrada_datos.php";
+  String  url ="http://192.168.30.22/EstMetereologica/logica/entrada_datos.php";
   //Se crea la string con datos a enviar por metodo POST
-  String data="humedad="+ hum +"&temperatura="+temp;
+  String data="humedad="+ floatToString(hum,2,2,0) +"&temperatura="+floatToString(temp,2,2,0);
 
   Serial.println("Requesting URL: ");
   Serial.println(url);
@@ -95,4 +95,23 @@ void leerdht11() {
   Serial.println("...............");
   ThingSpeak.setField (1,temp);
   ThingSpeak.setField (2,hum);
+}
+
+// Convierte un float en una cadena.
+// n -> número a convertir.
+// l -> longitud total de la cadena, por defecto 8.
+// d -> decimales, por defecto 2.
+// z -> si se desea rellenar con ceros a la izquierda, por defecto true.
+String floatToString( float n, int l, int d, boolean z){
+ char c[l+1];
+ String s;
+
+ dtostrf(n,l,d,c);
+ s=String(c);
+
+ if(z){
+ s.replace(" ","0");
+ }
+
+ return s;
 }
