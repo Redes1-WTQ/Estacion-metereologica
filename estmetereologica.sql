@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-03-2021 a las 17:42:52
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 8.0.2
+-- Tiempo de generación: 05-03-2021 a las 19:37:41
+-- Versión del servidor: 10.4.16-MariaDB
+-- Versión de PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,9 +38,6 @@ CREATE TABLE `datosh` (
 --
 
 INSERT INTO `datosh` (`id`, `fecha`, `humedad`) VALUES
-(1, '2021-03-05 03:54:55', 30.00),
-(2, '2021-03-05 16:06:37', 50.00),
-(3, '2021-03-05 16:06:54', 35.00),
 (4, '2021-03-05 16:25:04', 66.00),
 (5, '2021-03-05 16:25:19', 66.00),
 (6, '2021-03-05 16:25:34', 65.00),
@@ -131,9 +128,6 @@ CREATE TABLE `datost` (
 --
 
 INSERT INTO `datost` (`id`, `fecha`, `temperatura`) VALUES
-(1, '2021-03-05 03:54:55', 27.00),
-(2, '2021-03-05 16:06:37', 24.00),
-(3, '2021-03-05 16:06:53', 29.00),
 (4, '2021-03-05 16:25:04', 20.70),
 (5, '2021-03-05 16:25:19', 20.70),
 (6, '2021-03-05 16:25:34', 20.70),
