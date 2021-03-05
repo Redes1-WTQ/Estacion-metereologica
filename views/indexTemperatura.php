@@ -40,7 +40,7 @@ if ($row = $resultado->fetch()) {
 
 while ($fila = $datos->fetch()) {
     $impresion = $impresion . "[";
-    $impresion = $impresion . $fila[0]*1000;
+    $impresion = $impresion . $fila[0] * 1000;
     $impresion = $impresion . ",";
     $impresion = $impresion . $fila[1];
     $impresion = $impresion . "],";

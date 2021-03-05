@@ -10,24 +10,37 @@ $intervalo = 0;
 $dia = '05';
 $mes = '03';
 static $impresion = '';
-static $max=0;static $min=0;static $act=0;
-static $fmax='';static $fmin='';static $fact='';
+static $max = 0;
+static $min = 0;
+static $act = 0;
+static $fmax = '';
+static $fmin = '';
+static $fact = '';
 
 $ano = '2021';
 //Query para sacar datos del dia de la base de datos
 $datos = $conexionBD->query("SELECT UNIX_TIMESTAMP(fecha), humedad FROM datosh WHERE year(fecha) = '$ano' AND month(fecha) = '$mes' AND day(fecha) = '$dia'");
 //Query para sacar el dato mas alto
 $resultado = $conexionBD->query("SELECT * FROM datosh WHERE humedad = (SELECT MAX(humedad) from datosh)");
-if($row = $resultado->fetch()){$max = trim($row[2]);$fmax = trim($row[1]);}
+if ($row = $resultado->fetch()) {
+    $max = trim($row[2]);
+    $fmax = trim($row[1]);
+}
 //Query para sacar el dato mas bajo
 $resultado = $conexionBD->query("SELECT * FROM datosh WHERE humedad = (SELECT MIN(humedad) from datosh)");
-if($row = $resultado->fetch()){$min = trim($row[2]);$fmin = trim($row[1]);}
+if ($row = $resultado->fetch()) {
+    $min = trim($row[2]);
+    $fmin = trim($row[1]);
+}
 //Query para sacar el dato actual registrado
 $resultado =    $conexionBD->query("SELECT * FROM datosh WHERE id = (SELECT MAX(id) from datosh)");
-if($row = $resultado->fetch()){$act = trim($row[2]);$fact = trim($row[1]);}
+if ($row = $resultado->fetch()) {
+    $act = trim($row[2]);
+    $fact = trim($row[1]);
+}
 while ($fila = $datos->fetch()) {
     $impresion = $impresion . "[";
-    $impresion = $impresion . $fila[0]*1000;
+    $impresion = $impresion . $fila[0] * 1000;
     $impresion = $impresion . ",";
     $impresion = $impresion . $fila[1];
     $impresion = $impresion . "],";
@@ -62,21 +75,29 @@ while ($fila = $datos->fetch()) {
             <div class="card-big">
                 <div class="card">
                     <p class="card-title">HUMEDAD</p>
-                    <p style="text-align: left;"><span class="reading"><span id="temp">Humedad reciente: 
-                    <?php echo $act; ?> % <?php for($i=0;$i<45;$i++){echo "&nbsp";}?>
-                    Humedad mas alta registrada:
-                    <?php echo $max; ?> % <?php for($i=0;$i<25;$i++){echo "&nbsp";}?>
-                    Humedad mas baja registrada:
-                    <?php echo $min; ?></span>%
-                    </span>
+                    <p style="text-align: left;"><span class="reading"><span id="temp">Humedad reciente:
+                                <?php echo $act; ?> % <?php for ($i = 0; $i < 45; $i++) {
+                                                            echo "&nbsp";
+                                                        } ?>
+                                Humedad mas alta registrada:
+                                <?php echo $max; ?> % <?php for ($i = 0; $i < 25; $i++) {
+                                                            echo "&nbsp";
+                                                        } ?>
+                                Humedad mas baja registrada:
+                                <?php echo $min; ?></span>%
+                        </span>
                     </p>
-                    <p style="text-align: left;"><span class="reading"><span id="temp"> 
-                    <?php echo $fact; ?>  <?php for($i=0;$i<70;$i++){echo "&nbsp";}?>
-                    
-                    <?php echo $fmax; ?>  <?php for($i=0;$i<55;$i++){echo "&nbsp";}?>
-                    
-                    <?php echo $fmin; ?></span>  
-                    </span>
+                    <p style="text-align: left;"><span class="reading"><span id="temp">
+                                <?php echo $fact; ?> <?php for ($i = 0; $i < 70; $i++) {
+                                                            echo "&nbsp";
+                                                        } ?>
+
+                                <?php echo $fmax; ?> <?php for ($i = 0; $i < 55; $i++) {
+                                                            echo "&nbsp";
+                                                        } ?>
+
+                                <?php echo $fmin; ?></span>
+                        </span>
                     </p>
                     <div id="chart-humedad"></div>
                 </div>
@@ -120,7 +141,7 @@ while ($fila = $datos->fetch()) {
 
             series: [{
                 name: 'humedad %',
-                data: [ <?php print_r($impresion); ?> ]
+                data: [<?php print_r($impresion); ?>]
             }, ],
 
             responsive: {
@@ -137,14 +158,11 @@ while ($fila = $datos->fetch()) {
                     }
                 }]
             }
-
         });
-
         function actualizar() {
             location.reload(true);
         }
         setInterval(actualizar, 5000);
     </script>
 </body>
-
 </html>
