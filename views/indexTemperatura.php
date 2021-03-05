@@ -87,7 +87,7 @@ while ($fila = $datos->fetch()) {
                         </span>
                     </p>
                     <p style="text-align: left;"><span class="reading"><span id="temp">
-                                <?php echo $fact; ?> <?php for ($i = 0; $i < 75; $i++) {
+                                <?php echo $fact; ?> <?php for ($i = 0; $i < 70; $i++) {
                                                             echo "&nbsp";
                                                         } ?>
 
