@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-03-2021 a las 20:36:50
+-- Tiempo de generación: 05-03-2021 a las 17:20:10
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.4.12
 
@@ -24,31 +24,59 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `datos`
+-- Estructura de tabla para la tabla `datosh`
 --
 
-CREATE TABLE `datos` (
+CREATE TABLE `datosh` (
   `id` int(10) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
-  `temperatura` float(4,2) NOT NULL,
-  `humedad` float(4,2) NOT NULL DEFAULT 0.00
+  `humedad` float(4,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `datos`
+-- Volcado de datos para la tabla `datosh`
 --
 
-INSERT INTO `datos` (`id`, `fecha`, `temperatura`, `humedad`) VALUES
-(1, '2021-03-04 19:00:48', 73.00, 32.00);
+INSERT INTO `datosh` (`id`, `fecha`, `humedad`) VALUES
+(1, '2021-03-05 03:54:55', 30.00),
+(2, '2021-03-05 16:06:37', 50.00),
+(3, '2021-03-05 16:06:54', 35.00);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `datost`
+--
+
+CREATE TABLE `datost` (
+  `id` int(10) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
+  `temperatura` float(4,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `datost`
+--
+
+INSERT INTO `datost` (`id`, `fecha`, `temperatura`) VALUES
+(1, '2021-03-05 03:54:55', 27.00),
+(2, '2021-03-05 16:06:37', 24.00),
+(3, '2021-03-05 16:06:53', 29.00);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `datos`
+-- Indices de la tabla `datosh`
 --
-ALTER TABLE `datos`
+ALTER TABLE `datosh`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `datost`
+--
+ALTER TABLE `datost`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -56,10 +84,16 @@ ALTER TABLE `datos`
 --
 
 --
--- AUTO_INCREMENT de la tabla `datos`
+-- AUTO_INCREMENT de la tabla `datosh`
 --
-ALTER TABLE `datos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `datosh`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `datost`
+--
+ALTER TABLE `datost`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
