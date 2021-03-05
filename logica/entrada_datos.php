@@ -11,7 +11,10 @@
     $humedad = $_POST['humedad'];
     $temperatura = $_POST['temperatura'];
 
-    $statement = $conexionBD->prepare('INSERT INTO datos (id,fecha,temperatura,humedad) VALUES (null, CURRENT_TIMESTAMP, :temperatura, :humedad)');
-    $statement->execute(array(':temperatura'=>$temperatura,':humedad'=>$humedad));
-    echo "Datos ingresados correctamente"
+    $statement = $conexionBD->prepare('INSERT INTO datost (id,fecha,temperatura) VALUES (null, CURRENT_TIMESTAMP, :temperatura)');
+    $statement->execute(array(':temperatura'=>$temperatura));
+    echo "Datos de temperatura ingresados correctamente";
+    $statement = $conexionBD->prepare('INSERT INTO datosh (id,fecha,humedad) VALUES (null, CURRENT_TIMESTAMP, :humedad)');
+    $statement->execute(array(':humedad'=>$humedad));
+    echo "Datos de humedad ingresados correctamente";
 ?>
