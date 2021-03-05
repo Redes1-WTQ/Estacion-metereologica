@@ -62,10 +62,10 @@ while ($fila = $datos->fetch()) {
             <div class="card-big">
                 <div class="card">
                     <p class="card-title">HUMEDAD</p>
-                    <p style="text-align: left;"><span class="reading"><span id="temp">Humedad actual: 
+                    <p style="text-align: left;"><span class="reading"><span id="temp">Humedad reciente: 
                     <?php echo $act; ?> % <?php for($i=0;$i<45;$i++){echo "&nbsp";}?>
                     Humedad mas alta registrada:
-                    <?php echo $max; ?> % <?php for($i=0;$i<30;$i++){echo "&nbsp";}?>
+                    <?php echo $max; ?> % <?php for($i=0;$i<25;$i++){echo "&nbsp";}?>
                     Humedad mas baja registrada:
                     <?php echo $min; ?></span>%
                     </span>
