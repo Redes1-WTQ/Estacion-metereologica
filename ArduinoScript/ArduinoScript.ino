@@ -1,5 +1,4 @@
 #include "DHT.h"
-#include "ThingSpeak.h"
 #include "WiFi.h"
 
 
@@ -12,9 +11,6 @@ const char* host ="192.168.30.22";
 
 float temp = 0;
 float hum = 0;
-unsigned long channel=1314238;
-const char* Apikey ="BWQKI5150YUOY32M";
-
 WiFiClient cliente;
 
 DHT dht11(pin1, DHT11);    
@@ -31,7 +27,6 @@ void setup() {
     Serial.print(".");
   }
   Serial.println("Wifi conectado");
-  ThingSpeak.begin(cliente);
   dht11.begin();
 }
 
@@ -65,11 +60,8 @@ void loop() {
                 "Content-Type: application/x-www-form-urlencoded\r\n" +
                 "\r\n" + data);
   delay(11);
-  //subir datos a thingSpeak
-  ThingSpeak.writeFields(channel,Apikey);
   Serial.println("datos subidos");
   delay(12000);
-
 }
 
 void leerdht11() {
@@ -93,8 +85,6 @@ void leerdht11() {
   Serial.println(" %."); 
 
   Serial.println("...............");
-  ThingSpeak.setField (1,temp);
-  ThingSpeak.setField (2,hum);
 }
 
 // Convierte un float en una cadena.
