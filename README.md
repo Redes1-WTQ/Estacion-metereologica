@@ -3,7 +3,7 @@
 y bluethoot, a un servidor web creado con codigo HTML,JS,PHP y sus estilos css, el script al modulo desarrollado en el IDE de arruino.</p>
 <h3>Integrantes</h3>
 <ul>
-  <li>Andres Wilches</li>
-  <li>Diego Tellez</li>
-  <li>Edwin Quintero</li>
+  <li>Andres Felipe Wilches Torres</li>
+  <li>Diego Alejandro Tellez Clavijo</li>
+  <li>Edwin Felipe Quintero</li>
 </ul>
